@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VYR Studio — Design & Video</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#080808;color:#fff;line-height:1.5}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 7%;background:rgba(8,8,8,.82);backdrop-filter:blur(12px)}
+.logo{font-size:22px;font-weight:800}.logo span{color:#9cff00}
+nav .links{display:flex;gap:28px;color:#bbb;font-size:14px}
+nav .links a:hover{color:#9cff00}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 7% 70px;background:radial-gradient(circle at 75% 35%,#253500 0,transparent 32%),#080808}
+.hero h1{font-size:clamp(48px,8vw,100px);line-height:.95;max-width:900px;letter-spacing:-4px}
+.hero h1 span{color:#9cff00}.hero p{color:#aaa;max-width:570px;margin:25px 0;font-size:18px}
+.btn{display:inline-block;background:#9cff00;color:#080808;font-weight:800;padding:15px 24px;border-radius:10px;margin-top:8px}.btn:hover{transform:translateY(-2px)}
+section{padding:90px 7%}.title{font-size:42px;margin-bottom:35px}.muted{color:#999}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#111;border:1px solid #222;border-radius:16px;padding:28px;min-height:170px}.card h3{margin:12px 0;color:#fff}.card p{color:#999}
+.work{height:260px;background:linear-gradient(135deg,#181818,#252525);border-radius:16px;display:flex;align-items:end;padding:20px;border:1px solid #252525}
+.work small{color:#bbb}
+form{max-width:720px;display:grid;gap:14px}
+input,textarea,select{width:100%;background:#111;border:1px solid #2a2a2a;color:#fff;padding:15px;border-radius:10px;font:inherit}
+textarea{min-height:150px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:1px solid #9cff00}
+button{border:0;cursor:pointer;font:inherit}
+footer{padding:35px 7%;border-top:1px solid #222;color:#777;text-align:center}
+#success{display:none;background:#142000;border:1px solid #9cff00;padding:15px;border-radius:10px;color:#dfffad}
+@media(max-width:750px){nav .links{display:none}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}.title{font-size:34px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#">VYR Studio<span>.</span></a>
+  <div class="links"><a href="#work">Work</a><a href="#services">Services</a><a href="#request">Start a project</a></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <p class="muted">VIDEO EDITING • DESIGN • SOCIAL MEDIA</p>
+    <h1>Your idea.<br><span>My creation.</span></h1>
+    <p>I create modern visuals, edits and social media content that make your project stand out.</p>
+    <a class="btn" href="#request">Start a Project →</a>
+  </div>
+</header>
+
+<section id="work">
+  <h2 class="title">Selected Work</h2>
+  <div class="grid">
+    <div class="work"><small>Project 01 — Video Edit</small></div>
+    <div class="work"><small>Project 02 — Social Media Design</small></div>
+    <div class="work"><small>Project 03 — Advertisement</small></div>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="title">What I do</h2>
+  <div class="grid">
+    <div class="card"><div>🎬</div><h3>Video Editing</h3><p>Reels, short-form videos, promotional edits and social content.</p></div>
+    <div class="card"><div>🎨</div><h3>Graphic Design</h3><p>Posts, posters, thumbnails and visual content for your brand.</p></div>
+    <div class="card"><div>📱</div><h3>Social Media</h3><p>Creative content designed for Instagram, TikTok and other platforms.</p></div>
+  </div>
+</section>
+
+<section id="request">
+  <h2 class="title">Start a Project</h2>
+  <p class="muted" style="margin-bottom:25px">Tell me what you need. I'll get back to you with the next steps.</p>
+  <form id="projectForm">
+    <input id="name" placeholder="Your name" required>
+    <input id="contact" placeholder="Email or Instagram" required>
+    <select id="service" required>
+      <option value="">Choose a service</option>
+      <option>Video Editing</option><option>Graphic Design</option><option>Social Media Content</option><option>Advertisement</option><option>Other</option>
+    </select>
+    <input id="budget" placeholder="Budget (optional)">
+    <input id="deadline" placeholder="Deadline (optional)">
+    <textarea id="details" placeholder="Describe your project..." required></textarea>
+    <button class="btn" type="submit">Send Project Request →</button>
+    <div id="success">Thanks! Your request has been prepared. Connect the form to your email/form service to receive submissions.</div>
+  </form>
+</section>
+
+<footer>© 2026 VYR Studio — All rights reserved.</footer>
+
+<script>
+document.getElementById('projectForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const data = {
+    name: document.getElementById('name').value,
+    contact: document.getElementById('contact').value,
+    service: document.getElementById('service').value,
+    budget: document.getElementById('budget').value,
+    deadline: document.getElementById('deadline').value,
+    details: document.getElementById('details').value
+  };
+  console.log(data);
+  document.getElementById('success').style.display='block';
+});
+</script>
+</body>
+</html>
